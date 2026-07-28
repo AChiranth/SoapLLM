@@ -136,9 +136,6 @@ Reasons:
 -   Input/output format is already appropriate for transcript → SOAP
     generation.
 
-### ACI-Bench
-
-ACI-Bench will be reserved primarily as the final evaluation benchmark.
 
 ### Data Split Strategy
 
@@ -151,30 +148,15 @@ randomly split by **unique encounter** into:
 -   Validation
 -   Test
 
-No encounter may appear in more than one split.
+Proposed percentage splits are:
+- SFT: 60%
+- Reward Model: 15%
+- GRPO: 15%
+- Validtation: 5%
+- Test: 5%
 
-### MTS-Dialog
+No encounter may appear in more than one split. The proposed percentage splits can be adjusted (for example 70/10/10/5/5) if agreed upon
 
-Pros
-
--   High-quality
--   Already cleaned
--   Standard train/validation/test split
-
-### MEDIQA-Chat
-
-Pros
-
--   Research benchmark
--   Clinical note generation challenge
-
-### ACI-Bench
-
-Pros
-
--   Large
--   Realistic encounters
--   Multiple specialties
 
 ## Data Strategy
 
@@ -187,7 +169,8 @@ Normalize all datasets into
 }
 ```
 
-Train a LoRA adapter for one epoch as an initial proof of concept.
+Train a LoRA adapter for one epoch as an initial proof of concept. 
+After proof of concept is confirmed, will likely need to train for at least 3 epochs.
 
 ------------------------------------------------------------------------
 
@@ -396,6 +379,15 @@ Static inference results are sufficient.
 ## Demo
 
 Simple web interface comparing model outputs.
+
+## Model Upload
+
+Upload the following models to HuggingFace
+- SFT LoRA model
+- SFT LoRA + GRPO RL Model
+- Reward model
+
+The full 20B parameter models do not need to be uploaded to HuggingFace, for example, we could just upload the LoRA adapter. Since GPT-OSS 20B model already exists on HF, using base model + those additional parameters will still allow for reproducibility. 
 
 ------------------------------------------------------------------------
 
