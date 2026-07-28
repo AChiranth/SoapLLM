@@ -214,5 +214,8 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 
+# DATA-1 regenerated dataset splits
+data/
+
 # Streamlit
 .streamlit/secrets.toml
