@@ -6,3 +6,11 @@ pyarrow>=18.0,<23.0
 jupyter>=1.1,<2.0
 pytest>=8.0,<10.0
 ruff>=0.9,<1.0
+
+# SFT-1 training. On HPC, install torch from the CUDA wheel index matching
+# the cluster driver before installing the remaining requirements.
+torch>=2.5,<3.0
+accelerate>=1.0,<2.0
+peft>=0.17,<2.0
+transformers>=4.55,<6.0
+trl>=0.20,<2.0
